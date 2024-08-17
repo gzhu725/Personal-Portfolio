@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hackNY - application</title>
+  </head>
+  <body>
+    <a href="/hackNY/">
+      <button>back</button>
+    </a>
+    <h1>my hackNY application (h'24)</h1>
+    <h4>
+      caveat! application questions are subject to change. the kinds of
+      questions asked should be similar tho.
+    </h4>
+    <h3>
+      Provide a link to a coding project or a developer community project you’ve
+      built that you are most proud of․ This can be a "demo link" or a link to
+      the codebase (e․g․ the repository in Github)․
+    </h3>
+    <p>https://github.com/gzhu725/AICS-Registration-Portal</p>
+    <h3>
+      Provide a 1-2 paragraph description of what this project does․ Describe
+      your development approach and the challenges you encountered, and how you
+      overcame them․
+    </h3>
+    <p>
+      The AICS Registration Portal is a parent-facing portal used to help
+      register students for an online computer science camp, with the app being
+      separated into separate frontend and backend apps. The frontend is
+      implemented using TypeScript with a React.js/Next.js stack, while the
+      backend is written in Express.js/TypeScript, leveraging a noSQL Firebase
+      database. We used an agile development approach using the scrum framework
+      to structure our development of the portal. We separated sprints based on
+      dates (weekly sprints), as well as creating sprints prioritized for the
+      initial release (Beta release sprints). Features and tasks were divided on
+      Github Projects using Github Issues, and features worked on included
+      creating the different class subpages first (including functioning backend
+      endpoints to add/remove children from classes), authenticating and
+      ensuring all users were logged onto valid, authenticated Google accounts,
+      creating an admin and teacher view to see all classes, create a class, and
+      manage students. The biggest challenge surrounded organizing our code to
+      minimize repetition and compartmentalizing our code into readable parts.
+      While we were coding, we noticed that there was a lot of repetition of
+      creating components or certain functions to validate inputs. As a result,
+      there was a lot of revamping and reorganizing existing code. Perhaps
+      defining the structure of our code would have been a better solution to
+      organize the files. Additionally, I struggled a lot with working out the
+      backend endpoints - some data did not send to the database (Firebase) or
+      was sent over incorrectly (wrong fields or wrong numbers), and the process
+      of debugging and figuring out what parts were missing in the endpoints
+      took a long time. Finally, the most infamous challenge that me and several
+      of my teammates experienced was Firebase authentication, which took a lot
+      of researching documentation and videos to finally have it work for our
+      registration system. Overall, stepping back and researching documentation
+      or looking at example code helped me overcome and debug the issues I was
+      experiencing. Looking at the code using a different lens or asking for a
+      helping hand was often my solution to resolving any issues (it’s very
+      helpful having a second opinion on your code!)
+    </p>
+    <h3>Why did you build this project? What about it matters to you?</h3>
+    <p>
+      My teammates and I embarked on developing this project with the primary
+      goal of streamlining and enhancing registration processes. Having
+      previously served as an operations member for AICS, I experienced
+      firsthand the tedious and time-consuming nature of registering children
+      for courses. Before the inception of the portal, the process involved
+      navigating through a Google Spreadsheet filled with student responses and
+      scores. Operations members had to manually link each email to a
+      registration link for the corresponding course, considering scores and
+      preferences. This manual effort consumed valuable time that could have
+      been directed toward tasks like monitoring and responding to parent
+      emails. As a part-time CS instructor, I am driven by the belief that
+      education should be accessible to all students. The registration portal we
+      developed enables AICS staff to handle a larger volume of registrations
+      without the need for manual data entry or email correspondence. Through
+      the automation of these processes, we not only increase enrollment but
+      also reduce the likelihood of errors caused by human oversight. After the
+      registration portal, we were able to enroll 80 students in our classes
+      without the need for manual data entry. The efficiency of the registration
+      process, combined with its user-friendly interface, serves as an incentive
+      for students to enroll in our CS classes, further enhancing the
+      accessibility of our courses to a broader audience. The impact of our
+      project extends beyond the operational efficiency it brings. By making the
+      registration process quick and easy, we contribute to breaking down
+      barriers to education. This not only benefits the organization by
+      increasing enrollment but also empowers students with a seamless pathway
+      to access valuable computer science courses. Ultimately, our project
+      aligns with the broader mission of AICS: fostering inclusivity and
+      accessibility in Computer Science education.
+    </p>
+    <h3>
+      If you could re-build this project from scratch, what would you do
+      differently?
+    </h3>
+    <p>
+      If we could rebuild the registration portal, the biggest thing I would do
+      differently is re-reading the documentation for MUI/in general. There was
+      a time crunch to finish the registration portal by the end of the summer
+      before the next session of classes began. As a result, we did not spend
+      enough time to read the documentation. This was incredibly detrimental in
+      regards to styling the website. MUI allows developers to override default
+      styles using classes. By styling/overriding style based on classes, I
+      could use CSS specificity to change specific components if necessary.
+      However, since I was unaware I could override styles by classes, I ended
+      up overriding styles by component, which meant I had a lot of repetitive
+      code just to change specific components. Additionally, we should have
+      removed some of the boilerplate code associated with our API calls. We
+      used useEffect and useState instead of using useQuery. useQuery allows us
+      to simply tell it what data we need, and it takes care of fetching and
+      updating it automatically. useQuery can also check for new data at
+      specific times, keeping everything up-to-date without us having to do
+      much. We also could have incorporated a State management library, such as
+      Redux or Jotai, to avoid prop drilling properties throughout different
+      components and repetition.
+    </p>
+    <!-- WORK SECTIONS ABOVE, PERSONAL STATEMENT BELOW -->
+    <h3>Why apply to HackNY specifically?</h3>
+    <p>
+      I have always wanted the opportunity to discuss different social issues
+      and different development tools and technologies with other passionate and
+      innovative individuals. I thrive from communicating and discussing ideas
+      with others. HackNY’s smaller and intimate community allows its fellows to
+      get to know each other on a deeper level and discuss complex issues in
+      today’s world. Additionally, I believe that most developer projects I have
+      worked on don’t discuss the impact of their projects enough. When I work
+      on a project, I often emphasize and think about the customers/clients
+      behind the work - who are the customers, and what is the impact of our
+      project on those people? I hope that by chatting with the HackNY community
+      that I am able to understand the different purposes of work and the impact
+      of our work on different communities. HackNY also gives its fellows the
+      opportunity to explore NYC’s tech culture/environment. As a current
+      student at NYU, I am always curious about how to engage with my interests
+      in the city. With HackNY’s mix of events, speaker series, and more, I am
+      able to interact with more people in the city who do work that I am
+      interested in. There are a lot of fun things to do in NYC, and I would
+      love to adventure around in the city with other HackNY fellows and getting
+      to know others within the tech community. Overall, HackNY gives me the
+      opportunity to learn and grow as a developer, as well as make an impact on
+      the world and on the people I care about.
+    </p>
+    <h3>
+      Tell us about social impact initiatives that you are excited about, or
+      problems you would like to see solved by social impact projects. Tell us
+      why they are important to you, and what you would hope to accomplish as a
+      member of the hackNY community․
+    </h3>
+    <p>
+      In my freshman year of high school, I began volunteering by working as a
+      Teacher Assistant at Chinese School, helping monitor student behavior and
+      giving out grades, as well as leading a Martial Arts class after school.
+      While I never thought I would be passionate about instructing and
+      educating, these experiences made me realize my passion for teaching,
+      education, and education accessibility. In college, I worked as a CS
+      instructor at a nonprofit organization. Currently, I teach part time as a
+      CS instructor for KTByte, instructing students aged 8-16 basic Java
+      concepts using the Processing library, and engaging the next generation of
+      students in fun coding projects. As a CS student, I still notice a stark
+      gender gap in STEM fields, especially in Computer Science and even in the
+      classes I teach. For example, in my university Introduction to Computer
+      Science class, the vast majority of people I saw were men. In the class I
+      teach, 3 of the 4 students are boys. When I talk with my UMass Amherst
+      friends who major in computer science, they say the vast majority of their
+      Computer Science classes consist of male students. All these classes
+      exemplify that the vast majority of the CS field is dominated by men,
+      which discourages gender minorities from pursuing a career in Computer
+      Science or STEM. As a woman in Computer Science, it saddens me to see this
+      uneven distribution. As an educator, I hope that my presence as a woman CS
+      educator sets a precedent for other girls and gender minorities to pursue
+      a career in computer science. I hope that at HackNY I will be able to
+      discuss this gender gap and ways that instructors can talk about it with
+      students, starting at a classroom level. I wonder when/how we can see more
+      gender minority representation in Computer Science classes and
+      corresponding fields. Perhaps there is not a lot of discourse about
+      inclusivity and diversity at the classroom level. As a CS student, I
+      hardly hear discussions about diversity or inclusion within classrooms,
+      and perhaps having a conversation about this in the classroom is the
+      starting point of bridging the gender gap in STEM fields. While I am not a
+      teacher at the university level, I do teach young students. I hope that my
+      presence as a woman instructor in CS sets as a role model for other
+      women/gender minorities to pursue CS. As a HackNY fellow, I would hope to
+      discuss diversity and inclusion in my computer science classes to
+      hopefully bridge the gender gap starting at a classroom level.
+    </p>
+    <h3>
+      You are on a casual stroll to your favorite café when you suddenly notice
+      your treasured fictional character, whom you decide to invite for brunch.
+      Paint the scene for us: tell us who the character is, why you invited
+      them, what you would discuss, etc. Frame your response to give us a
+      genuine depiction of who you are and what values you hold dear.
+    </h3>
+    <p>
+      In Manhattan, I decide to go to Roosevelt Island and I stumble upon what
+      seems to be a hotel with a cafe in its lobby. I step into the Roosevelt
+      Island Cafe after walking around in the cold, and I bump into Alfred
+      Pennyworth who is reading one of the books from the wall (there are stacks
+      of books covering the walls!), perhaps a book about crime or ethical
+      hacking. I immediately approach Alfred and introduce myself before going
+      to get brunch at the restaurant next to the cafe. As we sit down, I think
+      about all the admirable things about Alfred. Alfred is Batman’s butler and
+      took guardianship over Batman ever since Batman’s parents got murdered.
+      When Bruce Wayne became Batman, Batman promised to keep Gotham City safe.
+      While Batman runs around Gotham restoring order, sometimes he needs help
+      accessing databases or hacking into his enemies’ communication systems,
+      and Alfred is oftentimes the one behind the line. I invited Alfred for
+      brunch to discuss how Alfred remains resilient, adaptive, and passionate
+      about raising such a strong man all alone (Batman) and keeping his city
+      safe behind the scenes. Despite the forces of evil taking over Gotham
+      City, Alfred and Batman continue to persevere through the most dangerous
+      environments and tirelessly restore order to the city. Batman’s work is
+      not complete without Alfred’s help, as Alfred quickly finds alternate
+      routes, enemy communication systems, and antidotes to help Batman. As a
+      person, I strive to maintain resilience during the toughest of times
+      (whether that be on a personal or global level). I also value what is
+      right and just, and when things are unjust, I am one to speak out to
+      restore that sense of justice. Alfred’s resilience, passion, and
+      perseverance to restore peace and justice for Gotham is an outlook on life
+      that I aspire to. When I go to class, work, or interact with people, I
+      always make sure that I am acting kindly, passionately, and speak out my
+      mind. As I dive into a nice chicken with waffles and Alfred dives into his
+      matcha fluffy pancakes, I first discuss the basics: How does Alfred,
+      without complaining, immediately respond behind the scenes to help Batman
+      fight Gotham’s crimes? Where does Alfred get the strength to continue his
+      work serving his city, despite the criminal’s incessant attempts to
+      destroy the city? Perhaps it’s from thinking about the boy he raised
+      (Bruce Wayne to Batman). Perhaps it’s thinking about the stakes of the
+      millions of lives in the city. Whatever the reason, I want to know how
+      Alfred perseveres through hardship and the reasons why he believes in
+      serving justice for his city. After hearing Alfred’s inspiration, I then
+      ask the technical stuff - what tools or technologies does he use to find
+      efficient routes? How does he hack into victim’s communication systems?
+      How did he create the antidote to Copperhead’s poison in a matter of
+      hours? I have always been curious about Alfred’s ingenuity, and how he has
+      picked up his expertise in helping Batman. As Alfred and I part ways after
+      finishing our brunch, I have learned about the secrets of Alfred’s
+      perseverance, bravery, and passion for upholding the safety of Gotham
+      City. Ultimately, I am inspired by him and hope that I can apply Alfred’s
+      tips and tricks to my work and my everyday life.
+    </p>
+    <h2>tips to future applicants</h2>
+    <p>
+      hackNY isn't looking for the most technically competent people. they're
+      looking for people who are passionate about social causes and want to make
+      an impact on the communities they are a part of. please put in effort to
+      each of the questions, and show your personality! we like fun and
+      emphasize having fun! for your code snippet, put in code that you are
+      truly passionate about and would be proud speaking about the most. if it
+      relates to a social issue you are passionate about extra bonus.
+    </p>
+    <p>most importantly, remember hackNY's goal: using tech for social good.</p>
+    <p>
+      TLDR, put in effort, use your own words, show that you care, and show your
+      personality! good luck!
+    </p>
+  </body>
+</html>
