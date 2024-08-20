@@ -11,7 +11,7 @@
     <h1>gloria zhu</h1>
     <h2>&#129421;</h2>
     <p>hello! welcome to my website. click a button below to get started!</p>
-   <a href="/aboutme/informal.html">
+    <a href="/aboutme/informal.html">
       <button>about me</button>
     </a>
     <a href="/projects/">
@@ -23,5 +23,13 @@
     <a href="/contactme/">
       <button>contact me!</button>
     </a>
+    <p>Last updated: <span id="lastUpdated"></span> EST</p>
+    <script>
+      fetch('/path/to/last-updated.json')
+          .then(response => response.json())
+          .then(data => {
+              document.getElementById('lastUpdated').textContent = new Date(data.last_updated).toLocaleString('en-US', { timeZone: 'America/New_York' });
+          });
+  </script>
   </body>
 </html>
