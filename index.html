@@ -25,7 +25,7 @@
     </a>
     <p>Last updated: <span id="lastUpdated"></span> EST</p>
     <script>
-      fetch('/path/to/last-updated.json')
+      fetch('/last-updated.json')
           .then(response => response.json())
           .then(data => {
               document.getElementById('lastUpdated').textContent = new Date(data.last_updated).toLocaleString('en-US', { timeZone: 'America/New_York' });
