@@ -9,8 +9,7 @@ My newest version of my website :)
 
 ## Home Page
 
-1. include time stamp as to when i last updated page
-2. have emoji switch from gorilla to devil to gamer alien
+1. have emoji switch from gorilla to devil to gamer alien
 
 ## Projects
 1. add the image icons for "Made With" sections
