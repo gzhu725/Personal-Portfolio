@@ -4,17 +4,16 @@ My newest version of my website :)
 
 ** Desired Features **
 
-# ALL 
-1. STYLING
-
-## Home Page
-
-1. have emoji switch from gorilla to devil to gamer alien
-
-## Projects
-1. add the image icons for "Made With" sections
-
 ## About Me - Informal
-1. images of hike accomplishments
-2. ask a question on fun stuff
+
+1. ask a question on fun stuff
    basically you can go in, ask a question, and it goes into my questions bank...organized where? a db?
+   can we notify me when i get a new quetion in the db
+   can i respond in text and then thats an answer
+
+if answer exists for the question: put it in the questions asked and answered doc
+
+## FINALIZING TOUCHES FOR FIRST DEPLOYMENT 
+1. prettifying and separating code into different files (cuz the code is ugly rn)
+2. remove certain things from github? .gitignore
+3. questions feature??
