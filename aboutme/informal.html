@@ -4,42 +4,120 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/dark.css" />
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     <title>about me - informal</title>
   </head>
   <body>
-    <a href="/">
-      <button>back</button>
-    </a>
-    <h1>about me - informal</h1>
-    <a href="/aboutme/formal.html"><button>formal mode</button></a>
-    <img style="height: 200px" src="/images/lol.JPG" />
-    <h2>hello! i'm gloria :)</h2>
-    <p>im a 21 year old still navigating life and having fun.</p>
-    <p>
-      i love exploring nyc, biking, "hiking" (aka walking ridiculous distances
-      in nyc), taekwondo, singing, listening and recording music, and reading
-      (trying to get into it).
-    </p>
-    <p>
-      i take my music very seriously, and music means a lot to me. listen to my
-      2024 spotify playlist below. there's a mix of everything on it.
-    </p>
-    <iframe
-      style="border-radius: 12px"
-      src="https://open.spotify.com/embed/playlist/2z3vwj3dW8Qf81Io1gENS9?utm_source=generator"
-      width="100%"
-      height="352"
-      frameborder="0"
-      allowfullscreen=""
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-      loading="lazy"
-    ></iframe>
-    <p>
-      this summer i also tried to hike every borough in nyc. i unfortunately
-      only got through 3 of the 5, but take a look at the routes taken and the
-      scenery along the way! i also am planning to hike the other 2 this fall so stay tuned for that!
-    </p>
-    <p>want to ask me a question about me? fill out the question box below...</p>
-    <h2>questions asked...and their answers...</h2>
+    <div style="padding: 40px">
+      <a href="/">
+        <button>back</button>
+      </a>
+      <h1>about me - informal</h1>
+
+      <a href="/aboutme/formal.html"><button>formal mode</button></a>
+      <div style="display: flex; flex-direction: row; padding-top: 20px">
+        <img style="height: 200px" src="/images/lol.JPG" />
+        <div style="padding-right: 40px; padding-left: 20px">
+          <h2>hello! i'm gloria :)</h2>
+          <p>im a 21 year old still navigating life and having fun.</p>
+          <p>
+            i love exploring nyc, biking, "hiking" (aka walking ridiculous
+            distances in nyc), taekwondo, singing, listening and recording
+            music, and reading (trying to get into it).
+          </p>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: row; align-items: center">
+        <p style="width: 50%; padding: 30px; align-items: center">
+          i take my music very seriously, and music means a lot to me. listen to
+          my 2024 spotify playlist. there's a mix of everything on it.
+        </p>
+
+        <iframe
+          style="border-radius: 12px"
+          src="https://open.spotify.com/embed/playlist/2z3vwj3dW8Qf81Io1gENS9?utm_source=generator"
+          height="352"
+          frameborder="0"
+          allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+        ></iframe>
+      </div>
+
+      <p>
+        this summer i also tried to hike every borough in nyc. i unfortunately
+        only got through 3 of the 5, but take a look at the routes taken! i also
+        am planning to hike the other 2 this fall so stay tuned for that!
+      </p>
+      <div style="display: flex; justify-content: center; align-items: center">
+        <iframe
+          src="https://docs.google.com/presentation/d/12PMIkRZIzi1KjxE83MKFlw35hGphEtsY6CNlU9feDUc/embed?start=false&loop=false&delayms=5000"
+          frameborder="0"
+          width="960"
+          height="569"
+          allowfullscreen="true"
+          mozallowfullscreen="true"
+          webkitallowfullscreen="true"
+        ></iframe>
+      </div>
+
+      <p>
+        want to ask me a question about me? fill out the question box below...
+      </p>
+      <p>if i like your question and see it, it should be answered below.</p>
+      <p>THIS NEEDS TO BE REVAMPED A LOT BUT WORKS FOR NOW PLZ</p>
+      <form action="" method="get" class="form-example">
+        <input placeholder="optional: name" type="text" name="name" id="name" />
+        <br />
+        <br />
+        <textarea
+          placeholder="write your question here!"
+          required
+          id="question"
+        ></textarea>
+        <br />
+        <div
+          class="g-recaptcha"
+          data-sitekey="6LcPsDMqAAAAAFRJUErzUz7oMhuQRbWxYI7GbzU9"
+        ></div>
+        <button
+          type="submit"
+          id="submitBtn"
+          class="g-recaptcha"
+          data-sitekey="6LcPsDMqAAAAAFRJUErzUz7oMhuQRbWxYI7GbzU9"
+          data-callback="onSubmitSuccess"
+          data-size="invisible"
+        >
+          Submit
+        </button>
+      </form>
+      <script type="module">
+        import { saveQuestion } from "../index.js";
+
+        document.querySelector("form").addEventListener("submit", (event) => {
+          event.preventDefault(); // Prevent the default form submission
+
+          const name = document.getElementById("name").value;
+          const question = document.getElementById("question").value;
+
+          // Call the save function
+          saveQuestion(name, question)
+            .then(() => {
+              alert("thanks for your question!");
+            })
+            .catch((error) => {
+              console.error("Error saving question:", error);
+            });
+        });
+      </script>
+      <h2>questions asked...and their answers...</h2>
+    </div>
   </body>
 </html>
