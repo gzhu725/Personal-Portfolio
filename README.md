@@ -16,4 +16,5 @@ if answer exists for the question: put it in the questions asked and answered do
 ## FINALIZING TOUCHES FOR FIRST DEPLOYMENT 
 1. prettifying and separating code into different files (cuz the code is ugly rn)
 2. remove certain things from github? .gitignore
-3. questions feature??
+3. make sure the code is okay?
+4. PRIVATIZE A LOT OF STUFF ON HERE
