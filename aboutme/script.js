@@ -1,4 +1,4 @@
-// captcha handle
+// captcha handle!
 
 const form = document.querySelector("form");
 
