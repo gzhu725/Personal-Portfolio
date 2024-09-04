@@ -4,29 +4,38 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/dark.css" />
     <title>projects</title>
   </head>
   <body>
-    <a href="/">
-      <button>back</button>
-    </a>
-    <h1>Projects</h1>
-    <p>these are some of my best projects. scroll down to see more!</p>
-    <!-- remove color when done organizing divs -->
-    <div
-      style="
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-row-gap: 1fr;
-        margin-top: 30px;
-        row-gap: 30px;
-      "
-    >
-      <!-- tool tip stuff? -->
-      <a>
-        <div style="background-color: lightblue;">
+    <div style="padding: 40px">
+      <a href="/">
+        <button>back</button>
+      </a>
+      <h1>Projects</h1>
+      <p>these are some of my best projects. scroll down to see more!</p>
+      <!-- remove color when done organizing divs -->
+      <div
+        style="
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-row-gap: 1fr;
+          row-gap: 30px;
+        "
+      >
+        <!-- tool tip stuff? -->
+        <div class="project-div">
           <h3>AICS - Registration Portal</h3>
           <p>made with:</p>
+          <img style="height: 50px" src="/images/typescript.png" />
+          <img style="height: 50px" src="/images/react.webp" />
+          <img style="height: 50px" src="/images/firebase.png" />
           <p>
             the acton institute of computer science (aics) is a nonprofit
             organization which provides free, accessible, computer science
@@ -36,71 +45,83 @@
           </p>
           <p>
             this is where the registration portal comes to play. several student
-            developers and i created this registration portal to faciliate the
+            developers and i created this registration portal to facilitate the
             registration process without having operation members do the tedious
             work the registration portal can handle. additionally, the portal
             handles gradework, such that aics instructors can input assignment
             names and grades in a data table on the site. feel free to take a
             look!
           </p>
+          <div style="display: flex; gap: 10px">
+            <a
+              target="_blank"
+              href="https://github.com/gzhu725/AICS-Registration-Portal"
+            >
+              <button>
+                <img src="/images/github-icon.webp" width="30px;" />
+                Code
+              </button>
+            </a>
+            <a target="_blank" href="https://actoninstituteofcs.netlify.app/">
+              <button>website</button>
+            </a>
+          </div>
+        </div>
+
+        <div class="project-div">
+          <h3>Personal Website</h3>
+          <p>made with:</p>
+          <img src="/images/htmllogo.png" />
+          <img src="/images/csslogo.png" />
+          <img src="/images/jslogo.png" />
+          <p>
+            in true dev fashion, this website was made with code. look around,
+            and i am taking suggestions for the way my code is structured
+            because idk what im doing lol.
+          </p>
           <a
             target="_blank"
-            href="https://github.com/gzhu725/AICS-Registration-Portal"
+            href="https://github.com/gzhu725/Personal-Portfolio"
           >
             <button>
               <img src="/images/github-icon.webp" width="30px;" />
               Code
             </button>
           </a>
-          <a target="_blank" href="https://actoninstituteofcs.netlify.app/">
-            <button>website</button>
-          </a>
         </div>
-      </a>
-      <div style="background-color: lightpink; height: 200px">
-        <h3>Personal Website</h3>
-        <p>made with:</p>
-        <p>
-          in true dev fashion, this website was made with code. look around, and
-          i am taking suggestions for the way my code is structured because idk
-          what im doing lol.
-        </p>
-        <a target="_blank" href="https://github.com/gzhu725/Personal-Portfolio">
-          <button>
-            <img src="/images/github-icon.webp" width="30px;" />
-            Code
-          </button>
-        </a>
-      </div>
-      <div style="background-color: lightblue; height: 200px">
-        <h3>Manga Bookshelf</h3>
-        <p>made with:</p>
-        <p>
-          this was a project for my
+        <div class="project-div">
+          <h3>Manga Bookshelf</h3>
+          <p>made with:</p>
+          <img style="height: 50px" src="/images/jslogo.png" />
+          <img style="height: 50px" src="/images/react.webp" />
+          <img style="height: 50px" src="/images/mongodb.png" />
+          <p>
+            this was a project for my
+            <a
+              target="_blank"
+              href="https://knowledge.kitchen/content/courses/agile-development-and-devops/schedule/"
+            >
+              agile development </a
+            >class.
+          </p>
+
+          <p>
+            the manga bookshelf web app was created for manga readers to track
+            manga books they've read, would like to read, as well as interact
+            with other users of the site. the website was public while it was
+            hosted on digital ocean, but for now, if you want to see it running
+            on your machine, you can follow the instructions in the readme.
+          </p>
           <a
             target="_blank"
-            href="https://knowledge.kitchen/content/courses/agile-development-and-devops/schedule/"
+            href="https://github.com/gzhu725/4-final-project-manga-bookshelf"
           >
-            agile development
+            <button>
+              <img src="/images/github-icon.webp" width="30px;" />
+              Code
+            </button>
           </a>
-          class.
-        </p>
-        <p>
-          the manga bookshelf web app was created for manga readers to track
-          manga books they've read, would like to read, as well as interact with
-          other users of the site. the website was public while it was hosted on
-          digital ocean, but for now, if you want to see it running on your
-          machine, you can follow the instructions in the readme.
-        </p>
-        <a
-          target="_blank"
-          href="https://github.com/gzhu725/4-final-project-manga-bookshelf"
-        >
-          <button>
-            <img src="/images/github-icon.webp" width="30px;" />
-            Code
-          </button>
-        </a>
+        </div>
       </div>
     </div>
   </body>
