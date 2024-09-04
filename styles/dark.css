@@ -1,0 +1,177 @@
+/* 
+dual darkness theme
+
+what needs styling: 
+1. background:
+2. font: roboto mono
+3. primary colors: 
+    #FD77D7: nice regular hot pink
+    #CF6BDD: darker hot pink
+    #FA62D5: PURE PINK
+    #972FFF: hot purple 
+    #0084c2: nice cerulean blue
+    #5ED5F3: hot cyan
+    #8FECFF: frosty blue    
+3a. secondary colors; 
+    #7A52CC: darker purple, more pigmented
+    #BD93F9: light lavender purple
+    #0068C6, 138BF7: GOOD MEDIUM BLUE? 
+3b. tertiary color: 
+    99DE1E: bright lime green
+4. button color/shape
+5. "animations" - aka transitions 
+
+*/
+
+* {
+  font-family: "Roboto Mono";
+  color: #f884db; /* settling on a light, hot, pink */
+}
+
+body {
+  background-color: #1a0e25;
+}
+
+button {
+  border-style: none;
+  border-radius: 5px;
+  background-color: #138bf7;
+  /* sizes of and in the buttons should probably be relative to something  */
+  width: 150px;
+  height: 50px;
+}
+
+button:hover {
+  transition: 0.4s;
+  background-color: #ff03c0;
+  color: #5ed5f3;
+}
+
+button:active {
+  transition: 0.1s;
+  background-color: #bb1ede;
+  color: #8fecff;
+}
+
+a {
+  transition: 0.1s;
+  color: #18cece;
+}
+
+a:hover {
+  transition: 0.1s;
+  color: rgb(42, 255, 255);
+}
+
+a:active {
+  color: cyan;
+}
+
+input {
+  border-radius: 5px;
+  height: 40px;
+  border-style: none;
+  background-color: rgba(186, 0, 207, 0.6);
+  color: white;
+}
+
+textarea {
+  border-radius: 5px;
+  height: 40px;
+  border-style: none;
+  background-color: rgba(186, 0, 207, 0.6);
+  color: white;
+}
+
+.project-div {
+  padding: 10px;
+  background-color: #2f1745;
+}
+
+.submit {
+  border-style: none;
+  border-radius: 5px;
+  background-color: magenta;
+  color: #8fecff;
+  width: 75px;
+  height: 40px;
+}
+
+.submit:hover {
+  transition: 0.4s;
+  border-style: none;
+  border-radius: 5px;
+  color: magenta;
+  background-color: #8fecff;
+  width: 75px;
+  height: 40px;
+}
+
+.submit:active {
+  transition: 0.1s;
+  background-color: rgb(154, 2, 154);
+  color: rgb(0, 222, 222);
+}
+.hackNY-button {
+  background-color: red;
+  color: white;
+}
+
+.hackNY-button:hover {
+  background-color: white;
+  color: red;
+}
+
+.hackNY-button:active {
+  background-color: black;
+  color: red;
+  /* what are the actual rgb values of hackNY */
+}
+
+.gmail:hover {
+  height: 90px;
+  box-shadow: 5px 10px 10px rgba(121, 54, 183, 0.7);
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+
+.gmail:active {
+  background-color: #6421a2;
+}
+
+.github {
+  width: 100px;
+  height: 100px;
+  background: #2dba4e;
+  border-radius: 50px;
+  transition: all 0.2s;
+}
+
+.github:hover {
+  box-shadow: 5px 10px 10px rgba(121, 54, 183, 0.7);
+  width: 110px;
+  height: 110px;
+}
+
+.github:active {
+  background: #20ff54;
+}
+
+.linkedin {
+  width: 100px;
+  height: 100px;
+  background: #0077b5;
+  border-radius: 50px;
+  border-style: none;
+  transition: all 0.2s;
+}
+
+.linkedin:hover {
+  width: 110px;
+  height: 110px;
+  box-shadow: 5px 10px 10px rgba(121, 54, 183, 0.7);
+}
+
+.linkedin:active {
+  background: #0397e7;
+}

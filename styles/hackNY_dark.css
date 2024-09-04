@@ -1,0 +1,48 @@
+* {
+  font-family: "Roboto Mono";
+  background-color: black;
+  color: white;
+  /* color: red; */
+}
+
+h1{
+  color:red;
+}
+h2 {
+  color:red;
+}
+h3{
+  color: red
+}
+button {
+  border-style: none;
+  border-radius: 5px;
+  background-color: #aaaaaa;
+  /* sizes of and in the buttons should probably be relative to something  */
+  width: 150px;
+  height: 50px;
+}
+
+button:hover {
+  transition: 0.4s;
+  background-color: red;
+  color: #d2d0d0;
+}
+
+button:active {
+  transition: 0.1s;
+  background-color: rgb(124, 0, 0);
+  color: white;
+}
+
+a {
+  color: rgb(255, 128, 0);
+}
+
+a:hover {
+  color: orange;
+}
+
+a:active{
+  color: rgb(255, 212, 132);
+}
