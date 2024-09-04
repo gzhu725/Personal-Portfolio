@@ -11,7 +11,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/styles/dark.css" />
-    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <title>about me - informal</title>
   </head>
   <body>
@@ -73,11 +73,12 @@
       </p>
       <p>if i like your question and see it, it should be answered below.</p>
       <p>THIS NEEDS TO BE REVAMPED A LOT BUT WORKS FOR NOW PLZ</p>
-      <form action="" method="get" class="form-example">
+      <form>
         <input placeholder="optional: name" type="text" name="name" id="name" />
         <br />
         <br />
         <textarea
+          name="question"
           placeholder="write your question here!"
           required
           id="question"
@@ -85,38 +86,11 @@
         <br />
         <div
           class="g-recaptcha"
-          data-sitekey="6LcPsDMqAAAAAFRJUErzUz7oMhuQRbWxYI7GbzU9"
+          data-sitekey="6Lc8uTMqAAAAAEkVYQz1NMZHRg4iVKhH4f3eLrNZ"
         ></div>
-        <button
-          type="submit"
-          id="submitBtn"
-          class="g-recaptcha"
-          data-sitekey="6LcPsDMqAAAAAFRJUErzUz7oMhuQRbWxYI7GbzU9"
-          data-callback="onSubmitSuccess"
-          data-size="invisible"
-        >
-          Submit
-        </button>
+        <button type="submit">submit!</button>
       </form>
-      <script type="module">
-        import { saveQuestion } from "../index.js";
-
-        document.querySelector("form").addEventListener("submit", (event) => {
-          event.preventDefault(); // Prevent the default form submission
-
-          const name = document.getElementById("name").value;
-          const question = document.getElementById("question").value;
-
-          // Call the save function
-          saveQuestion(name, question)
-            .then(() => {
-              alert("thanks for your question!");
-            })
-            .catch((error) => {
-              console.error("Error saving question:", error);
-            });
-        });
-      </script>
+      <script src="script.js"></script>
       <h2>questions asked...and their answers...</h2>
     </div>
   </body>
