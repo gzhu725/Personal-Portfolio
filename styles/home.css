@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Roboto Mono", monospace;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+  margin-top: 20px;
+}
+h1,
+h2,
+p {
+  margin: 10px 0;
+}
+
+a {
+  margin: 10px 0;
+}
+
+button {
+  font-family: "Source Code Pro", monospace;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#emoji {
+  font-size: 2rem;
+}
