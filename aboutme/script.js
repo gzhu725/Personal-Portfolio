@@ -27,6 +27,9 @@ form.addEventListener("submit", (e) => {
           grecaptcha.reset();
         }
       }
+      else {
+        alert('uh oh! something went wrong!')
+      }
     })
     .catch((err) => console.error(err));
 });
