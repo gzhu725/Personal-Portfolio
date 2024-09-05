@@ -2,7 +2,6 @@
   font-family: "Roboto Mono";
   background-color: black;
   color: white;
-  /* color: red; */
 }
 
 h1{
@@ -18,7 +17,6 @@ button {
   border-style: none;
   border-radius: 5px;
   background-color: #aaaaaa;
-  /* sizes of and in the buttons should probably be relative to something  */
   width: 150px;
   height: 50px;
 }
