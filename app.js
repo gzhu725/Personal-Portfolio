@@ -1,10 +1,11 @@
 import express from "express";
 import cors from "cors";
-import fetch from "node-fetch"; // You need to install this package
-import { initializeApp } from "firebase/app"; // Firebase SDK for Node.js
+import fetch from "node-fetch";
+import { initializeApp } from "firebase/app";
 import { getDatabase, ref, push, set } from "firebase/database";
+import dotenv from 'dotenv'
 
-// Initialize Express and Middleware
+dotenv.config()
 const app = express();
 const port = 3000;
 
@@ -13,13 +14,13 @@ app.use(express.urlencoded({ extended: false }));
 
 // Firebase Configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDKQ4HTfXx5MMskbQPJ4f-I2S6Rf6FpWUk",
-  authDomain: "personal-website-d1944.firebaseapp.com",
-  projectId: "personal-website-d1944",
-  storageBucket: "personal-website-d1944.appspot.com",
-  messagingSenderId: "1033337069522",
-  appId: "1:1033337069522:web:1717dc81f52f78cab7720b",
-  databaseURL: "https://personal-website-d1944-default-rtdb.firebaseio.com/",
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID,
+  databaseURL: process.env.FIREBASE_DATABASE_URL,
 };
 
 // Initialize Firebase
@@ -33,7 +34,7 @@ app.post("/upload", async (req, res) => {
     console.log("Received POST request at /upload");
 
     const params = new URLSearchParams({
-      secret: "6Lc8uTMqAAAAAKFBxU6N10NdYs1W90-jZqnQdXwq",
+      secret: process.env.RECAPTCHA_SECRET,
       response: req.body["g-recaptcha-response"],
       remoteip: req.ip,
     });
