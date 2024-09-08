@@ -2,6 +2,7 @@ import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, push, set } from 'firebase/database';
 import fetch from 'node-fetch';
 import dotenv from 'dotenv';
+import querystring from 'querystring';
 
 dotenv.config();
 
@@ -31,9 +32,12 @@ export async function handler(event) {
 
     console.log("Received POST request");
 
+    // Parse form data
+    const formData = querystring.parse(event.body);
+
     const params = new URLSearchParams({
       secret: process.env.RECAPTCHA_SECRET,
-      response: JSON.parse(event.body)["g-recaptcha-response"],
+      response: formData["g-recaptcha-response"],
       remoteip: event.headers["x-forwarded-for"] || 'unknown',
     });
 
@@ -49,7 +53,6 @@ export async function handler(event) {
     console.log("reCAPTCHA response:", data);
 
     if (data.success) {
-      const formData = JSON.parse(event.body);
       const newQuestionKey = push(ref(database, "questions")).key;
       await set(ref(database, "questions/" + newQuestionKey), {
         name: formData.name,
