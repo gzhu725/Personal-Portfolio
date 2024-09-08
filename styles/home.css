@@ -11,9 +11,11 @@ body {
 
 .button-container {
   display: flex;
+  flex-direction: row; /* Default: buttons in a row */
   gap: 10px; /* Space between buttons */
   margin-top: 20px;
 }
+
 h1,
 h2,
 p {
@@ -33,4 +35,15 @@ button {
 
 #emoji {
   font-size: 2rem;
+}
+
+@media (max-width: 600px) {
+  .button-container {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+    box-sizing: border-box; 
+  }
 }

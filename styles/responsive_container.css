@@ -1,0 +1,24 @@
+.responsive-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 50px;
+}
+
+.responsive-container a {
+  margin: 10px; /* Optional: space between links */
+}
+
+@media (max-width: 600px) {
+  .responsive-container {
+    flex-direction: column; /* Stack items in a column on small screens */
+    align-items: stretch; /* Ensure items stretch to full width */
+  }
+
+  .responsive-container a {
+    text-align: center; /* Center text if needed */
+    width: 100%; /* Make links full width */
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+  }
+}
