@@ -1,35 +1,41 @@
-// captcha handle!
-
+// recaptcha handle
 const form = document.querySelector("form");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  
+  // Get the reCAPTCHA response
   const captchaResponse = grecaptcha.getResponse();
 
   if (!captchaResponse.length > 0) {
-    throw new Error("Captcha empty!");
+    alert("Captcha empty!");
+    return;
   }
 
   const fd = new FormData(e.target);
+  fd.append("g-recaptcha-response", captchaResponse);  // Include the captcha response
+
+  // Convert FormData to URLSearchParams
   const params = new URLSearchParams(fd);
 
-  fetch("http://localhost:3000/upload", {
+  // Update the URL to point to the Netlify function
+  fetch("/.netlify/functions/upload", {  // Use relative path to the Netlify function
     method: "POST",
     body: params,
   })
     .then((res) => res.json())
     .then((data) => {
       if (data.captchaSuccess) {
-        alert("thanks for the question :)")
+        alert("Thanks for the question! :)");
         document.getElementById("name").value = "";
         document.getElementById("question").value = "";
+
         if (grecaptcha) {
           grecaptcha.reset();
         }
-      }
-      else {
-        alert('uh oh! something went wrong!')
+      } else {
+        alert('Uh oh! Something went wrong with CAPTCHA!');
       }
     })
-    .catch((err) => console.error(err));
+    .catch((err) => console.error("Error:", err));
 });

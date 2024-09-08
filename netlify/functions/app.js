@@ -1,16 +1,11 @@
-import express from "express";
-import cors from "cors";
-import fetch from "node-fetch";
-import { initializeApp } from "firebase/app";
-import { getDatabase, ref, push, set } from "firebase/database";
-import dotenv from 'dotenv'
+// netlify/functions/upload.js
+const fetch = require("node-fetch");
+const { initializeApp } = require("firebase/app");
+const { getDatabase, ref, push, set } = require("firebase/database");
+const dotenv = require("dotenv");
 
-dotenv.config()
-const app = express();
-const port = 3000;
-
-app.use(cors());
-app.use(express.urlencoded({ extended: false }));
+// Load environment variables
+dotenv.config();
 
 // Firebase Configuration
 const firebaseConfig = {
@@ -27,16 +22,20 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 const database = getDatabase(firebaseApp, firebaseConfig.databaseURL);
 
-// Express Route Handling
-app.post("/upload", async (req, res) => {
+exports.handler = async (event, context) => {
   try {
-    // Log to check if the function runs
-    console.log("Received POST request at /upload");
+    // Ensure it's a POST request
+    if (event.httpMethod !== "POST") {
+      return {
+        statusCode: 405,
+        body: JSON.stringify({ message: "Method Not Allowed" }),
+      };
+    }
 
     const params = new URLSearchParams({
       secret: process.env.RECAPTCHA_SECRET,
-      response: req.body["g-recaptcha-response"],
-      remoteip: req.ip,
+      response: JSON.parse(event.body)["g-recaptcha-response"],
+      remoteip: event.headers["x-forwarded-for"],
     });
 
     const captchaResponse = await fetch(
@@ -49,11 +48,8 @@ app.post("/upload", async (req, res) => {
     const data = await captchaResponse.json();
 
     if (data.success) {
-      res.json({ captchaSuccess: true });
-
       // Adding to Firebase
-      const formData = req.body;
-      console.log("Form Data:", formData.question);
+      const formData = JSON.parse(event.body);
 
       const newQuestionKey = push(ref(database, "questions")).key;
       await set(ref(database, "questions/" + newQuestionKey), {
@@ -62,16 +58,21 @@ app.post("/upload", async (req, res) => {
         answer: "",
       });
 
-      console.log("Question successfully added to Firebase!");
+      return {
+        statusCode: 200,
+        body: JSON.stringify({ captchaSuccess: true, message: "Question added to Firebase!" }),
+      };
     } else {
-      res.json({ captchaSuccess: false });
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ captchaSuccess: false, message: "CAPTCHA verification failed" }),
+      };
     }
   } catch (error) {
-    console.error("Error in /upload route:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    console.error("Error:", error);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ message: "Internal Server Error" }),
+    };
   }
-});
-
-app.listen(port, () => {
-  console.log(`App running on port ${port}`);
-});
+};
