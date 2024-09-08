@@ -6,7 +6,6 @@ import querystring from 'querystring';
 
 dotenv.config();
 
-// Firebase Configuration
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
   authDomain: process.env.FIREBASE_AUTH_DOMAIN,
@@ -17,7 +16,6 @@ const firebaseConfig = {
   databaseURL: process.env.FIREBASE_DATABASE_URL,
 };
 
-// Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
 const database = getDatabase(firebaseApp);
 
@@ -30,15 +28,14 @@ export async function handler(event) {
       };
     }
 
-    console.log("Received POST request");
-
-    // Parse form data
     const formData = querystring.parse(event.body);
+
+    console.log("Form Data:", formData);
 
     const params = new URLSearchParams({
       secret: process.env.RECAPTCHA_SECRET,
-      response: formData["g-recaptcha-response"],
-      remoteip: event.headers["x-forwarded-for"] || 'unknown',
+      response: formData['g-recaptcha-response'],
+      remoteip: event.headers['x-forwarded-for'] || 'unknown',
     });
 
     const captchaResponse = await fetch(

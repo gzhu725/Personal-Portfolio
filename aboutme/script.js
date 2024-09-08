@@ -1,4 +1,3 @@
-// recaptcha handle
 const form = document.querySelector("form");
 
 form.addEventListener("submit", (e) => {
@@ -7,7 +6,7 @@ form.addEventListener("submit", (e) => {
   // Get the reCAPTCHA response
   const captchaResponse = grecaptcha.getResponse();
 
-  if (!captchaResponse.length > 0) {
+  if (!captchaResponse) {
     alert("Error! Fill out the Captcha!");
     return;
   }
@@ -18,7 +17,6 @@ form.addEventListener("submit", (e) => {
   // Convert FormData to URLSearchParams
   const params = new URLSearchParams(fd);
 
-  // Update the URL to point to the Netlify function
   fetch("/.netlify/functions/upload", {  // Use relative path to the Netlify function
     method: "POST",
     body: params,
