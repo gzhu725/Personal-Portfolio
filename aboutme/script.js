@@ -17,6 +17,7 @@ form.addEventListener("submit", (e) => {
 
   // Convert FormData to URLSearchParams
   const params = new URLSearchParams(fd);
+  console.log(params)
 
   // Update the URL to point to the Netlify function
   // fetch("/.netlify/functions/upload", {
