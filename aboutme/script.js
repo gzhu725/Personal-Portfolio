@@ -19,24 +19,24 @@ form.addEventListener("submit", (e) => {
   const params = new URLSearchParams(fd);
 
   // Update the URL to point to the Netlify function
-  fetch("/.netlify/functions/upload", {
-    // Use relative path to the Netlify function
-    method: "POST",
-    body: params,
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      if (data.captchaSuccess) {
-        alert("Thanks for the question! :)");
-        document.getElementById("name").value = "";
-        document.getElementById("question").value = "";
+  // fetch("/.netlify/functions/upload", {
+  //   // Use relative path to the Netlify function
+  //   method: "POST",
+  //   body: params,
+  // })
+  //   .then((res) => res.json())
+  //   .then((data) => {
+  //     if (data.captchaSuccess) {
+  //       alert("Thanks for the question! :)");
+  //       document.getElementById("name").value = "";
+  //       document.getElementById("question").value = "";
 
-        if (grecaptcha) {
-          grecaptcha.reset();
-        }
-      } else {
-        alert("Uh oh! Something went wrong with CAPTCHA!");
-      }
-    })
-    .catch((err) => console.error("Error:", err));
+  //       if (grecaptcha) {
+  //         grecaptcha.reset();
+  //       }
+  //     } else {
+  //       alert("Uh oh! Something went wrong with CAPTCHA!");
+  //     }
+  //   })
+  //   .catch((err) => console.error("Error:", err));
 });
