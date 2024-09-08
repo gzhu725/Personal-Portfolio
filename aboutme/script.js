@@ -12,9 +12,6 @@ form.addEventListener("submit", (e) => {
   }
 
   const fd = new FormData(e.target);
-  fd.append("g-recaptcha-response", captchaResponse); // Include the captcha response
-
-  // Convert FormData to URLSearchParams
   const params = new URLSearchParams(fd);
 
   // Update the URL to point to the Netlify function
