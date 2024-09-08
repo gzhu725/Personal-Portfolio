@@ -19,7 +19,7 @@ form.addEventListener("submit", (e) => {
   const params = new URLSearchParams(fd);
 
   // Update the URL to point to the Netlify function
-  fetch("/.netlify/functions/upload", {  // Use relative path to the Netlify function
+  fetch("../netlify/functions/upload", {  // Use relative path to the Netlify function
     method: "POST",
     body: params,
   })
