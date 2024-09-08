@@ -1,8 +1,7 @@
-// netlify/functions/upload.js
-const fetch = require("node-fetch");
-const { initializeApp } = require("firebase/app");
-const { getDatabase, ref, push, set } = require("firebase/database");
-const dotenv = require("dotenv");
+import fetch from 'node-fetch';
+import { initializeApp } from "firebase/app";
+import { getDatabase, ref, push, set } from "firebase/database";
+import dotenv from 'dotenv';
 
 // Load environment variables
 dotenv.config();
@@ -22,7 +21,7 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 const database = getDatabase(firebaseApp, firebaseConfig.databaseURL);
 
-exports.handler = async (event, context) => {
+export async function handler(event, context) {
   try {
     // Ensure it's a POST request
     if (event.httpMethod !== "POST") {
@@ -75,4 +74,4 @@ exports.handler = async (event, context) => {
       body: JSON.stringify({ message: "Internal Server Error" }),
     };
   }
-};
+}
