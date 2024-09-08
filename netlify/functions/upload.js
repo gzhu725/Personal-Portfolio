@@ -21,7 +21,6 @@ const database = getDatabase(firebaseApp);
 
 export async function handler(event) {
   try {
-    // Ensure it's a POST request
     if (event.httpMethod !== 'POST') {
       return {
         statusCode: 405,
@@ -29,7 +28,6 @@ export async function handler(event) {
       };
     }
 
-    // Parse form data from the request body
     const formData = querystring.parse(event.body);
 
     // Verify reCAPTCHA

@@ -11,8 +11,8 @@ body {
 
 .button-container {
   display: flex;
-  flex-direction: row; /* Default: buttons in a row */
-  gap: 10px; /* Space between buttons */
+  flex-direction: row;
+  gap: 10px; 
   margin-top: 20px;
 }
 
