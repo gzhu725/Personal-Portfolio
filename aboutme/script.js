@@ -2,8 +2,7 @@ const form = document.querySelector("form");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-
-  // Get the reCAPTCHA response
+  
   const captchaResponse = grecaptcha.getResponse();
 
   if (!captchaResponse) {
@@ -12,13 +11,12 @@ form.addEventListener("submit", (e) => {
   }
 
   const fd = new FormData(e.target);
-  fd.append("g-recaptcha-response", captchaResponse); // Include the captcha response
+  fd.append("g-recaptcha-response", captchaResponse);  // Include the captcha response
 
   // Convert FormData to URLSearchParams
   const params = new URLSearchParams(fd);
 
-  fetch("/.netlify/functions/upload", {
-    // Use relative path to the Netlify function
+  fetch("/.netlify/functions/upload", {  // Use relative path to the Netlify function
     method: "POST",
     body: params,
   })
@@ -33,7 +31,7 @@ form.addEventListener("submit", (e) => {
           grecaptcha.reset();
         }
       } else {
-        alert("Uh oh! Something went wrong with CAPTCHA!");
+        alert('Uh oh! Something went wrong with CAPTCHA!');
       }
     })
     .catch((err) => console.error("Error:", err));
