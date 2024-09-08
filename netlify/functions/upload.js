@@ -1,8 +1,8 @@
-import { initializeApp } from 'firebase/app';
-import { getDatabase, ref, push, set } from 'firebase/database';
-import fetch from 'node-fetch';
-import dotenv from 'dotenv';
-import querystring from 'querystring';
+import { initializeApp } from "firebase/app";
+import { getDatabase, ref, push, set } from "firebase/database";
+import fetch from "node-fetch";
+import dotenv from "dotenv";
+import querystring from "querystring";
 
 dotenv.config();
 
@@ -34,8 +34,8 @@ export async function handler(event) {
 
     const params = new URLSearchParams({
       secret: process.env.RECAPTCHA_SECRET,
-      response: formData['g-recaptcha-response'],
-      remoteip: event.headers['x-forwarded-for'] || 'unknown',
+      response: formData["g-recaptcha-response"],
+      remoteip: event.headers["x-forwarded-for"] || "unknown",
     });
 
     const captchaResponse = await fetch(
@@ -59,19 +59,28 @@ export async function handler(event) {
 
       return {
         statusCode: 200,
-        body: JSON.stringify({ captchaSuccess: true, message: "Question added to Firebase!" }),
+        body: JSON.stringify({
+          captchaSuccess: true,
+          message: "Question added to Firebase!",
+        }),
       };
     } else {
       return {
         statusCode: 400,
-        body: JSON.stringify({ captchaSuccess: false, message: "CAPTCHA verification failed" }),
+        body: JSON.stringify({
+          captchaSuccess: false,
+          message: "CAPTCHA verification failed",
+        }),
       };
     }
   } catch (error) {
     console.error("Error in function:", error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ message: "Internal Server Error", error: error.message }),
+      body: JSON.stringify({
+        message: "Internal Server Error",
+        error: error.message,
+      }),
     };
   }
 }
