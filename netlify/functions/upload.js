@@ -1,9 +1,8 @@
+import { initializeApp } from 'firebase/app';
+import { getDatabase, ref, push, set } from 'firebase/database';
 import fetch from 'node-fetch';
-import { initializeApp } from "firebase/app";
-import { getDatabase, ref, push, set } from "firebase/database";
 import dotenv from 'dotenv';
 
-// Load environment variables
 dotenv.config();
 
 // Firebase Configuration
@@ -19,11 +18,10 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
-const database = getDatabase(firebaseApp, firebaseConfig.databaseURL);
+const database = getDatabase(firebaseApp);
 
-export async function handler(event, context) {
+export async function handler(event) {
   try {
-    // Ensure it's a POST request
     if (event.httpMethod !== "POST") {
       return {
         statusCode: 405,
@@ -31,10 +29,12 @@ export async function handler(event, context) {
       };
     }
 
+    console.log("Received POST request");
+
     const params = new URLSearchParams({
       secret: process.env.RECAPTCHA_SECRET,
       response: JSON.parse(event.body)["g-recaptcha-response"],
-      remoteip: event.headers["x-forwarded-for"],
+      remoteip: event.headers["x-forwarded-for"] || 'unknown',
     });
 
     const captchaResponse = await fetch(
@@ -44,12 +44,12 @@ export async function handler(event, context) {
         body: params,
       }
     );
+
     const data = await captchaResponse.json();
+    console.log("reCAPTCHA response:", data);
 
     if (data.success) {
-      // Adding to Firebase
       const formData = JSON.parse(event.body);
-
       const newQuestionKey = push(ref(database, "questions")).key;
       await set(ref(database, "questions/" + newQuestionKey), {
         name: formData.name,
@@ -68,10 +68,10 @@ export async function handler(event, context) {
       };
     }
   } catch (error) {
-    console.error("Error:", error);
+    console.error("Error in function:", error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ message: "Internal Server Error" }),
+      body: JSON.stringify({ message: "Internal Server Error", error: error.message }),
     };
   }
 }
