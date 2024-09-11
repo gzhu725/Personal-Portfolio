@@ -1,6 +1,6 @@
 # Personal-Portfolio
 
-This is my new website, which you can view [here!](gloriazhu.net).
+This is my new website, which you can view [here!](https://gloriazhu.net/).
 
 # Frontend
 
